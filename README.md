@@ -46,17 +46,17 @@ To simplify the development process, we are provided with a backend server to de
 ## Important Note - Backend Server
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
 
-### Requirements
+## Requirements
 
 **Meets Specifications**
 
-#### Application Setup
+### Application Setup
 
 * The application was created with create-react-app and requires only npm install and npm start to get it installed and launched.
 
 * An updated README that describes the project and has instructions for installing and launching the project is included.
 
-#### Main Page
+### Main Page
 
 * The main page shows 3 shelves for books, and each book is shown on the correct shelf.
 
@@ -64,11 +64,12 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 
 * When the browser is refreshed, the same information is displayed on the page.
 
-#### Search Page
+### Search Page
 
 1. The search page has a search input field.
 
 2. The search page behaves correctly:
+
     a) As the user types into the search field, books that match the query are displayed on the page.
 
     b) Search results are not shown when all of the text is deleted out of the search input box.
@@ -85,13 +86,13 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 
 * When an item is categorized on the search page and the user navigates to the main page, it appears on that shelf in the main page.
 
-#### Routing
+### Routing
 
 * The main page contains a link to the search page. When the link is clicked, the search page is displayed and the URL in the browser’s address bar is /search.
 
 * The search page contains a link to the main page. When the link is clicked, the main page is displayed and the URL in the browser’s address bar is /.
 
-#### Code Functionality
+### Code Functionality
 
 * Component state is passed down from parent components to child components. The state variable is not modified directly - setState() function is used correctly.
 
