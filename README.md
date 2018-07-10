@@ -59,7 +59,7 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 
  * npm
 
-1. Download or Clone this Repository.
+1. Download or Clone this Repository(https://github.com/FoxyStoat/my-reads.git).
 2. Run $ npm install to install the project dependencies.
 3. Run the app using $ npm start.
 4. App can be seen at: localhost:3000.
