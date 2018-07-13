@@ -30,18 +30,12 @@ class BooksApp extends React.Component {
             <ShelfRead />
           </div>
         </div>
+        <div className="open-search">
+					<a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+				</div>
       </div>
     )
   }
 }
-
-
-
-
-            // <div className="open-search">
-            //   <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
-            // </div
-
-
 
 export default BooksApp
