@@ -23,6 +23,11 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
+
+
+                {/* bookshelf */}
+
+                {/* shelf: Currently Reading */}
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
@@ -31,6 +36,8 @@ class BooksApp extends React.Component {
                         <div className="book">
                           <div className="book-top">
                             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: 'url("http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api")' }}></div>
+
+                            {/* book shelf changer */}
                             <div className="book-shelf-changer">
                               <select>
                                 <option value="move" disabled>Move to...</option>
@@ -45,6 +52,8 @@ class BooksApp extends React.Component {
                           <div className="book-authors">Harper Lee</div>
                         </div>
                       </li>
+
+
                       <li>
                         <div className="book">
                           <div className="book-top">
@@ -66,6 +75,9 @@ class BooksApp extends React.Component {
                     </ol>
                   </div>
                 </div>
+
+
+                {/* want to read */}
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Want to Read</h2>
                   <div className="bookshelf-books">
@@ -89,6 +101,8 @@ class BooksApp extends React.Component {
                         </div>
                       </li>
                       <li>
+
+
                         <div className="book">
                           <div className="book-top">
                             <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: 'url("http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72G3gA5A-Ka8XjOZGDFLAoUeMQBqZ9y-LCspZ2dzJTugcOcJ4C7FP0tDA8s1h9f480ISXuvYhA_ZpdvRArUL-mZyD4WW7CHyEqHYq9D3kGnrZCNiqxSRhry8TiFDCMWP61ujflB&source=gbs_api")' }}></div>
@@ -109,6 +123,8 @@ class BooksApp extends React.Component {
                     </ol>
                   </div>
                 </div>
+
+                {/* shelf: Read */}
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Read</h2>
                   <div className="bookshelf-books">
@@ -132,6 +148,8 @@ class BooksApp extends React.Component {
                         </div>
                       </li>
                       <li>
+
+
                         <div className="book">
                           <div className="book-top">
                             <div className="book-cover" style={{ width: 128, height: 174, backgroundImage: 'url("http://books.google.com/books/content?id=1q_xAwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE712CA0cBYP8VKbEcIVEuFJRdX1k30rjLM29Y-dw_qU1urEZ2cQ42La3Jkw6KmzMmXIoLTr50SWTpw6VOGq1leINsnTdLc_S5a5sn9Hao2t5YT7Ax1RqtQDiPNHIyXP46Rrw3aL8&source=gbs_api")' }}></div>
@@ -150,6 +168,8 @@ class BooksApp extends React.Component {
                         </div>
                       </li>
                       <li>
+
+
                         <div className="book">
                           <div className="book-top">
                             <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: 'url("http://books.google.com/books/content?id=32haAAAAMAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72yckZ5f5bDFVIf7BGPbjA0KYYtlQ__nWB-hI_YZmZ-fScYwFy4O_fWOcPwf-pgv3pPQNJP_sT5J_xOUciD8WaKmevh1rUR-1jk7g1aCD_KeJaOpjVu0cm_11BBIUXdxbFkVMdi&source=gbs_api")' }}></div>
@@ -172,6 +192,9 @@ class BooksApp extends React.Component {
                 </div>
               </div>
             </div>
+
+
+
             <div className="open-search">
               <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
             </div>
