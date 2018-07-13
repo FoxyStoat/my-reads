@@ -2,7 +2,9 @@ import React from 'react';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 import Search from './Search';
+import ShelfCurrentlyReading from './ShelfCurrentlyReading';
 import ShelfRead from './ShelfRead';
+import ShelfWantToRead from './ShelfWantToRead';
 
 class BooksApp extends React.Component {
   state = {
