@@ -15,8 +15,8 @@ class BooksApp extends React.Component {
     BooksAPI.getAll()
     .then((books) => {
       console.log(books);
-      this.setState({ books })
-    })
+      this.setState({ books });
+    });
   }
 
   render() {
@@ -27,9 +27,9 @@ class BooksApp extends React.Component {
             <h1>MyReads</h1>
           </div>
           <div className="list-books-content">
-            <BookShelf shelfTitle="Curently Reading" />
-            <BookShelf shelfTitle="Want To Read" />
-            <BookShelf shelfTitle="Read" />
+            <BookShelf shelfTitle="Curently Reading" books={this.state.books} />
+            <BookShelf shelfTitle="Want To Read" books={this.state.books} />
+            <BookShelf shelfTitle="Read" books={this.state.books} />
           </div>
         </div>
         <div className="open-search">
@@ -40,4 +40,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default BooksApp;
