@@ -5,17 +5,17 @@ import Book from './Book';
 class BookShelf extends React.Component {
 
   render() {
-    const { shelfTitle, title, authors, books, bookId } = this.props
+    const { shelfTitle, books } = this.props;
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">{shelfTitle}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            <li key={bookId}>
+            <li>
               {books.map((book) => (
                 <Book
                   book={book}
-                  bookId={book.Id}
+                  key={book.id}
                   authors={book.authors}
                   title={book.title}
                 />
