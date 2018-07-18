@@ -21,7 +21,7 @@ class BooksApp extends React.Component {
   }
 
   render() {
-    const { books } = this.state.books;
+    const { books } = this.state;
     return (
       <div className="app">
         <div className="list-books">

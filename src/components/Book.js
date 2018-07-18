@@ -3,24 +3,22 @@ import BookShelfChanger from './BookShelfChanger';
 
 class Book extends React.Component {
   render() {
-    const { authors, bookTitle } = this.props;
+    const { authors, title } = this.props;
     return (
-      <li>
-        <div className="book">
-          <div className="book-top">
-            <div className="book-cover"
-              style={{
-                width: 128,
-                height: 192,
-                backgroundImage: 'url(book.image.Links)'
-                }}>
-            </div>
-            <BookShelfChanger />
+      <div className="book">
+        <div className="book-top">
+          <div className="book-cover"
+            style={{
+              width: 128,
+              height: 192,
+              backgroundImage: 'url(book.image.Links)'
+              }}>
           </div>
-          <div className="book-title">{bookTitle}</div>
-          <div className="book-authors">{authors}</div>
+          <BookShelfChanger />
         </div>
-      </li>
+        <div className="book-title">{title}</div>
+        <div className="book-authors">{authors}</div>
+      </div>
     )
   }
 }
