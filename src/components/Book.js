@@ -3,7 +3,7 @@ import BookShelfChanger from './BookShelfChanger';
 
 class Book extends React.Component {
   render() {
-    const { authors, title } = this.props;
+    const { authors, title, book } = this.props;
     return (
       <div className="book">
         <div className="book-top">
@@ -11,7 +11,7 @@ class Book extends React.Component {
             style={{
               width: 128,
               height: 192,
-              backgroundImage: 'url(book.image.Links)'
+              backgroundImage: `url(${book.imageLinks.thumbnail})`
               }}>
           </div>
           <BookShelfChanger />
