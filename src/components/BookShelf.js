@@ -5,14 +5,14 @@ import Book from './Book';
 class BookShelf extends React.Component {
 
   render() {
-    const { shelfTitle, books } = this.props;
+    const { shelfTitle, books, shelf } = this.props;
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">{shelfTitle}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
             <li>
-              {books.map((book) => (
+              {books.filter(book => book.shelf === shelf).map((book) => (
                 <Book
                   book={book}
                   key={book.id}
@@ -28,6 +28,8 @@ class BookShelf extends React.Component {
 
 BookShelf.propTypes = {
   shelfTitle: PropTypes.string.isRequired,
+  books: PropTypes.array.isRequired,
+  shelf: PropTypes.string.isRequired,
 }
 
 export default BookShelf

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 
@@ -53,10 +52,6 @@ class BooksApp extends React.Component {
       </div>
     )
   }
-}
-
-BooksApp.propTypes = {
-  books: PropTypes.array.isRequired,
 }
 
 export default BooksApp;
