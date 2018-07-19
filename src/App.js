@@ -32,14 +32,17 @@ class BooksApp extends React.Component {
             <BookShelf
               shelfTitle="Curently Reading"
               books={books}
+              shelf="currentlyReading"
             />
             <BookShelf
               shelfTitle="Want To Read"
               books={books}
+              shelf="wantToRead"
             />
             <BookShelf
               shelfTitle="Read"
               books={books}
+              shelf="read"
             />
           </div>
         </div>
