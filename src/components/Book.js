@@ -3,7 +3,7 @@ import BookShelfChanger from './BookShelfChanger';
 
 class Book extends React.Component {
   render() {
-    const { authors, title, book } = this.props;
+    const { book } = this.props;
     return (
       <div className="book">
         <div className="book-top">
@@ -16,8 +16,8 @@ class Book extends React.Component {
           </div>
           <BookShelfChanger />
         </div>
-        <div className="book-title">{title}</div>
-        <div className="book-authors">{authors}</div>
+        <div className="book-title">{book.title}</div>
+        <div className="book-authors">{book.authors}</div>
       </div>
     )
   }
