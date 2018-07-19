@@ -109,18 +109,18 @@ body, .app {
   list-style-type: none;
   padding: 0;
   margin: 0;
-
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 .books-grid li {
   padding: 10px 15px;
   text-align: left;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .book {
   width: 140px;
+  margin-right: 60px;
 }
 .book-title,
 .book-authors {
