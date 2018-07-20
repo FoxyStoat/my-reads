@@ -1,23 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 
 // import Search from './components/Search';
 import BookShelf from './components/BookShelf';
 
-
 class BooksApp extends React.Component {
+  // set state on our object of books array
   state = {
     showSearchPage: false,
     books: []
   }
 
+  // Get book data from BookAPI
   componentDidMount() {
     BooksAPI.getAll()
-    .then((books) => {
-      console.log(books);
+    .then(books => {
       this.setState({ books });
-    });
+    })
   }
 
   render() {
@@ -47,7 +48,7 @@ class BooksApp extends React.Component {
           </div>
         </div>
         <div className="open-search">
-					<a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+					<Link to="/search">Add a book</Link>
 				</div>
       </div>
     )
