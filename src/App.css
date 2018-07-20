@@ -118,6 +118,11 @@ body, .app {
   justify-content: center;
 }
 
+.book-cover-img {
+  width: 128px;
+  height: 192px;
+}
+
 .book {
   width: 140px;
   margin-right: 60px;
