@@ -10,7 +10,6 @@ import BookShelf from './components/BookShelf';
 class BooksApp extends React.Component {
   // set state on our object of books array
   state = {
-    showSearchPage: false,
     books: []
   }
 
@@ -21,6 +20,12 @@ class BooksApp extends React.Component {
       this.setState({ books });
     })
   }
+
+  // Add a book to a certain selected shelf from book self
+  // changer component using our update() method from BooksAPI
+  updateShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf);
+  };
 
   render() {
     const { books } = this.state;
@@ -34,19 +39,22 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <BookShelf
-                shelfTitle="Curently Reading"
+                shelfTitle="Currently Reading"
                 books={books}
                 shelf="currentlyReading"
+                updateShelf={this.updateShelf}
               />
               <BookShelf
                 shelfTitle="Want To Read"
                 books={books}
                 shelf="wantToRead"
+                updateShelf={this.updateShelf}
               />
               <BookShelf
                 shelfTitle="Read"
                 books={books}
                 shelf="read"
+                updateShelf={this.updateShelf}
               />
             </div>
 						{/* Search Link */}
