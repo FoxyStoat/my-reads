@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import escapeRegExp from 'escape-string-regexp';
 
 class Search extends React.Component {
   // set state on a query
@@ -9,14 +10,14 @@ class Search extends React.Component {
 
 	// Update query method, takes a query
 	updateQuery = (query) => {
-		this.setState({ query: query }) //query to be whatever query is
+		this.setState({ query }) //query to be whatever query is
 	}
 
   render() {
     return (
       <div className="search-books">
 				<div className="search-books-bar">
-				{JSON.stringify(this.state)}
+				{/* {JSON.stringify(this.state)} */}
 				<Link to="/"
 				className="close-search">
 				Close</Link>
