@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import escapeRegExp from 'escape-string-regexp';
+import * as BooksAPI from './BooksAPI';
 
 class Search extends React.Component {
   // set state on a query
   state = {
-    query: ''
+		query: ''
 	}
 
 	// Update query method, takes a query
