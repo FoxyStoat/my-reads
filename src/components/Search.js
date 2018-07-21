@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class Search extends React.Component {
-  // set state on our object of books array
+  // set state on a query
   state = {
     query: ''
 	}
 
-	// Update query method
+	// Update query method, takes a query
 	updateQuery = (query) => {
-		this.setState({ query: query.trim() }) //query to be whatever query .trim is, get rid of any white space
+		this.setState({ query: query }) //query to be whatever query is
 	}
 
   render() {
