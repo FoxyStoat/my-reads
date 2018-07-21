@@ -72,3 +72,20 @@ class BooksApp extends React.Component {
 }
 
 export default BooksApp;
+
+
+/* RESOURCES
+  Apart from the lessons I also used the following resources for extra help throughout this project:
+  * https://www.youtube.com/watch?v=fd2Cayhez58&index=2&list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b
+  * https://reactjs.org/
+  * https://tylermcginnis.com/free-react-bootcamp/
+
+  For extra help with the state:
+  * https://daveceddia.com/visual-guide-to-state-in-react/
+  * https://daveceddia.com/where-initialize-state-react/
+  * https://reactjs.org/docs/lifting-state-up.html
+
+  For book changer component from 1hr 21 minute mark:
+  *https://www.youtube.com/watch?v=i6L2jLHV9j8&feature=youtu.be
+  * https://stackoverflow.com/questions/28868071/onchange-event-using-react-js-for-drop-down
+  */

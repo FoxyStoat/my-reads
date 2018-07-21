@@ -20,7 +20,7 @@ class Book extends React.Component {
           <BookShelfChanger
             book={book}
             updateShelf={updateShelf}
-            shelf={shelf}
+            shelf={shelf} // for current shelf value in select drop down
           />
         </div>
         <div className="book-title">{book.title}</div>
