@@ -23,9 +23,15 @@ class BooksApp extends React.Component {
 
   // Add a book to a certain selected shelf from book self
   // changer component using our update() method from BooksAPI
+  // update the ul based off the current state
   updateShelf = (book, shelf) => {
+    book.shelf = shelf;
+    this.setState((state) => ({
+      books: state.books.filter((b) => b.id !== book.id).concat([book])
+    }));
     BooksAPI.update(book, shelf);
   };
+
 
   render() {
     const { books } = this.state;
