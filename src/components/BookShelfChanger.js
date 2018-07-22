@@ -6,7 +6,7 @@ class BookShelfChanger extends React.Component {
     return (
       <div className="book-shelf-changer">
         <select
-          value={shelf}
+          value={shelf || "none"}
           onChange={(event) => updateShelf(
           book, event.target.value
           )}>
