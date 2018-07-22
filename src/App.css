@@ -109,6 +109,9 @@ body, .app {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 .books-grid li {
   padding: 10px 15px;
