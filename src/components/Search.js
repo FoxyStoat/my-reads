@@ -25,8 +25,8 @@ class Search extends React.Component {
 			BooksAPI.search(query)
 			.then((queryResults) => {
 				// If query throws us an error if query part matches
-				//  or there is no book, make sure it is still an
-				//  array so the .map can still iterate over it:
+				//  or there is no book, make sure queryResults is still an
+				//  array and not undifined so the .map can still iterate over it:
 				if (queryResults.error) {
 					this.setState({ queryResults: [] });
 				} else {
@@ -41,6 +41,7 @@ class Search extends React.Component {
 
   render() {
 		const { queryResults, query } = this.state;
+		const { updateShelf, shelf } = this.props;
     return (
       <div className="search-books">
 				<div className="search-books-bar">
@@ -73,17 +74,21 @@ class Search extends React.Component {
           <ol className="books-grid">
 					{/* map through our queryResults array and for
 					each book display a book from queryResults array*/}
-						{queryResults.map(queryResults => (
-							<li key={queryResults.id}>
-								<Book
-									book={queryResults}
-								/>
-							</li>
-						))}
+						{queryResults.map(queryResults => {
+							return (
+								<li key={queryResults.id}>
+									<Book
+										book={queryResults}
+										updateShelf={updateShelf}
+										shelf={shelf}
+									/>
+								</li>
+							);
+						})}
 					</ol>
         </div>
       </div>
-    )
+    );
   }
 }
 
