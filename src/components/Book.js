@@ -4,6 +4,12 @@ import BookShelfChanger from './BookShelfChanger';
 class Book extends React.Component {
   render() {
     const { book, updateShelf, shelf } = this.props;
+    // If books have a thumbnail display it
+    // if not display a place holder
+    const displayImage = book.imageLinks ?
+          book.imageLinks.thumbnail :
+          "http://via.placeholder.com/128x192?text=?";
+          // help from: https://knowledge.udacity.com/questions/3543
     // console.log(book);
     return (
       <div className="book">
@@ -13,8 +19,9 @@ class Book extends React.Component {
               width: 128,
               height: 192,
             }}>
-            <img className="book-cover-img" src={book.imageLinks.smallThumbnail}
-            alt={book.title}
+            <img className="book-cover-img"
+              src={displayImage}
+              alt={book.title}
             />
           </div>
           <BookShelfChanger
