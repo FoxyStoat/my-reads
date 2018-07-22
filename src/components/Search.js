@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import escapeRegExp from 'escape-string-regexp';
 import * as BooksAPI from '../BooksAPI';
 import Book from './Book';
+import sortBy from 'sort-by';
 
 class Search extends React.Component {
   // set state on a query
@@ -15,7 +15,7 @@ class Search extends React.Component {
 	// set the state and call the updateQuery Results method
 	updateQuery = (query) => {
 		this.setState({ query }) //query to be whatever query is
-		this.updateQueryResults(query)
+		this.updateQueryResults(query);
 	}
 
 	// if there is a query we search the books api
@@ -32,7 +32,7 @@ class Search extends React.Component {
 				} else {
 					this.setState({ queryResults });
 				}
-			})
+			});
 			} else {
 				// if no query, return an empty array so no books (no results found)
 				this.setState({ queryResults: [] })
@@ -42,6 +42,8 @@ class Search extends React.Component {
   render() {
 		const { queryResults, query } = this.state;
 		const { updateShelf, shelf } = this.props;
+
+		queryResults.sort(sortBy('title'));
     return (
       <div className="search-books">
 				<div className="search-books-bar">
@@ -74,21 +76,19 @@ class Search extends React.Component {
           <ol className="books-grid">
 					{/* map through our queryResults array and for
 					each book display a book from queryResults array*/}
-						{queryResults.map(queryResults => {
-							return (
-								<li key={queryResults.id}>
-									<Book
-										book={queryResults}
-										updateShelf={updateShelf}
-										shelf={shelf}
-									/>
-								</li>
-							);
-						})}
+						{queryResults.map(queryResults => (
+							<li key={queryResults.id}>
+								<Book
+									book={queryResults}
+									updateShelf={updateShelf}
+									shelf={shelf}
+								/>
+							</li>
+						))}
 					</ol>
         </div>
       </div>
-    );
+    )
   }
 }
 
