@@ -24,16 +24,23 @@ class Search extends React.Component {
 		if (query) {
 			BooksAPI.search(query)
 			.then((queryResults) => {
-				this.setState({ queryResults })
+				// If query throws us an error if query part matches
+				//  or there is no book, make sure it is still an
+				//  array so the .map can still iterate over it:
+				if (queryResults.error) {
+					this.setState({ queryResults: [] });
+				} else {
+					this.setState({ queryResults });
+				}
 			})
-		} else {
-			// if no query return an empty array so no books (no results found)
-			this.setState({ queryResults: [] })
-		}
-	};
+			} else {
+				// if no query, return an empty array so no books (no results found)
+				this.setState({ queryResults: [] })
+		} // end of if statement
+	}; // end of updateQueryResults
 
   render() {
-		const { queryResults } = this.state
+		const { queryResults, query } = this.state;
     return (
       <div className="search-books">
 				<div className="search-books-bar">
@@ -57,7 +64,7 @@ class Search extends React.Component {
 						<input
 							type="text"
 							placeholder="Search by title or author"
-							value={this.state.query} //value will always be whatever state query is
+							value={query} //value will always be whatever state query is
 							onChange={(event) => this.updateQuery(event.target.value)} //when input field changes, update our query
 						/>
 					</div>
