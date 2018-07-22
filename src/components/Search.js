@@ -1,20 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import escapeRegExp from 'escape-string-regexp';
-import * as BooksAPI from './BooksAPI';
+import * as BooksAPI from '../BooksAPI';
+import Book from './Book';
 
 class Search extends React.Component {
   // set state on a query
   state = {
-		query: ''
-	}
+		query: '',
+		queryResults: [] // add books that match query to this array
+	};
 
-	// Update query method, takes a query
+	// Update query method, takes a query (string)
+	// set the state and call the updateQuery Results method
 	updateQuery = (query) => {
 		this.setState({ query }) //query to be whatever query is
+		this.updateQueryResults(query)
 	}
 
+	// if there is a query we search the books api
+	// and bring in the results
+	updateQueryResults = (query) => {
+		if (query) {
+			BooksAPI.search(query)
+			.then((queryResults) => {
+				this.setState({ queryResults })
+			})
+		} else {
+			// if no query return an empty array so no books (no results found)
+			this.setState({ queryResults: [] })
+		}
+	};
+
   render() {
+		const { queryResults } = this.state
     return (
       <div className="search-books">
 				<div className="search-books-bar">
@@ -44,7 +63,17 @@ class Search extends React.Component {
 					</div>
 				</div>
         <div className="search-books-results">
-          <ol className="books-grid"></ol>
+          <ol className="books-grid">
+					{/* map through our queryResults array and for
+					each book display a book from queryResults array*/}
+						{queryResults.map(queryResults => (
+							<li key={queryResults.id}>
+								<Book
+									book={queryResults}
+								/>
+							</li>
+						))}
+					</ol>
         </div>
       </div>
     )
