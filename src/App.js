@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
+import sortBy from 'sort-by';
 
 import Search from './components/Search';
 import BookShelf from './components/BookShelf';
@@ -35,6 +36,8 @@ class BooksApp extends React.Component {
 
   render() {
     const { books } = this.state;
+    books.sort(sortBy('title'));
+
     return (
       <div className="app">
         <Route exact path="/" render={() => (
