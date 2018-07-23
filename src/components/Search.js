@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 import Book from './Book';
+import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 
 class Search extends React.Component {
@@ -43,7 +44,18 @@ class Search extends React.Component {
 		const { queryResults, query } = this.state;
 		const { updateShelf, books } = this.props;
 
-		queryResults.sort(sortBy('title'));
+		// If there is a specific query
+		let showingBooks;
+		if (query) {
+			// If there are any special characters in our query
+			// escape them and i = ignore case
+			const match = new RegExp(escapeRegExp(query), 'i');
+			showingBooks = queryResults.filter((book) => match.test(book.title))
+		}else{
+			showingBooks = queryResults;
+		}
+
+		showingBooks.sort(sortBy('title'));
 
     return (
       <div className="search-books">
@@ -78,7 +90,7 @@ class Search extends React.Component {
           <ol className="books-grid">
 					{/* map through our queryResults array and for
 					each book display a book from queryResults array*/}
-      		{queryResults.map(queryResults => {
+      		{showingBooks.map(queryResults => {
 						let searchShelfValue; // in book shelf changer the book is set to
 						// the shelf it is on or "none" by dafault.  If books on the search page
 						// don't have a current self page it will be none by dafault
