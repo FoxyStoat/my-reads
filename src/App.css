@@ -39,6 +39,9 @@ body, .app {
 .bookshelf-title {
   border-bottom: 1px solid #dedede;
 }
+.bookshelf-title:first-child {
+  margin-top: 30px;
+}
 .bookshelf-books {
   text-align: center;
 }
