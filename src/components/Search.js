@@ -41,9 +41,10 @@ class Search extends React.Component {
 
   render() {
 		const { queryResults, query } = this.state;
-		const { updateShelf, shelf } = this.props;
+		const { updateShelf, books } = this.props;
 
 		queryResults.sort(sortBy('title'));
+
     return (
       <div className="search-books">
 				<div className="search-books-bar">
@@ -72,19 +73,34 @@ class Search extends React.Component {
 						/>
 					</div>
 				</div>
+
         <div className="search-books-results">
           <ol className="books-grid">
 					{/* map through our queryResults array and for
 					each book display a book from queryResults array*/}
-						{queryResults.map(queryResults => (
-							<li key={queryResults.id}>
-								<Book
-									book={queryResults}
-									updateShelf={updateShelf}
-									shelf={shelf}
-								/>
+      		{queryResults.map(queryResults => {
+						let searchShelfValue; // in book shelf changer the book is set to
+						// the shelf it is on or "none" by dafault.  If books on the search page
+						// don't have a current self page it will be none by dafault
+							books.map(book => (
+							// compare the book id's in books.state and
+							// queryResults, if they match then the book is already
+							// assigned a shelf on page main so reflect this in
+							// the book shelf changer button
+							book.id === queryResults.id ?
+							searchShelfValue = book.shelf :
+							''
+						));
+							return (
+								<li key={queryResults.id}>
+									<Book
+										book={queryResults}
+										updateShelf={updateShelf}
+										shelf={searchShelfValue}
+									/>
 							</li>
-						))}
+							);
+						})}
 					</ol>
         </div>
       </div>

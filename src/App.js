@@ -71,7 +71,12 @@ class BooksApp extends React.Component {
 				)}/> {/*route*/}
 
 				{/* If the url matches search render search component */}
-        <Route path='/search' component={Search}/>
+        <Route path='/search' render={() => (
+          <Search
+            updateShelf={this.updateShelf}
+            books={books} //books state
+          />
+        )}/>
       </div>
     )
   }
