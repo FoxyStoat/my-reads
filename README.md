@@ -9,6 +9,12 @@ Project 7 Front End Nanodegree Udacity
 * [Requirements of the project](https://github.com/FoxyStoat/my-reads#requirements)
 * [License](https://github.com/FoxyStoat/my-reads#license)
 
+##### Screenshots of Finished Project
+
+![screenshot of finished project](screenshot-my-reads.png "screenshot of finished project")
+
+![screenshot of finished project search page](screenshot-my-reads-search.png "screenshot of finished project search page")
+
 ## Project Overview
 
 A book tracking app built with React / Bookshelf app that allows you to select and categorise books you have read, are currently reading, or want to read.
